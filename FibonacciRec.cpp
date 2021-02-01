@@ -12,9 +12,9 @@ int fibRec(int x) {
 
 int main() {
    int x , i=0;
-   cout << "Enter the number of terms of series : ";
+   cout << "Ingrese el número de términos para la serie: ";
    cin >> x;
-   cout << "\nFibonnaci Series : ";
+   cout << "\nSerie de Fibonacci: ";
    while(i < x) {
       cout << " " << fibRec(i);
       i++;

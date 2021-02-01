@@ -13,9 +13,9 @@ void fib(int num) {
 
 int main() {
    int num;
-   cout << "Enter the number : ";
+   cout << "Ingrese el número: ";
    cin >> num;
-   cout << "\nThe fibonacci series : " ;
+   cout << "\nLa serie de Fibonacci: " ;
    fib(num);
    return 0;
 }
