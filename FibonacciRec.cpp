@@ -6,6 +6,7 @@ int fibRec(int x) {
       return(x);
    }
    else {
+     //O(n)
       return(fibRec(x-1)+fibRec(x-2));
    }
 }

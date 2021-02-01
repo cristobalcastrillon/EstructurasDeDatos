@@ -3,6 +3,7 @@ using namespace std;
 
 void fib(int num) {
    int x = 0, y = 1, z = 0;
+   //'n' iteraciones: O(n)
    for (int i = 0; i < num; i++) {
       cout << x << " ";
       z = x + y;
