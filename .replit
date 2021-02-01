@@ -1,5 +1,5 @@
 language = "undefined"
 #Fibonacci Iterativo:
-run = "g++ FibonacciIt.cpp -o FibonacciIt \n./FibonacciIt"
+#run = "g++ FibonacciIt.cpp -o FibonacciIt \n./FibonacciIt"
 #Fibonacci Recursivo:
 run = "g++ FibonacciRec.cpp -o FibonacciRec \n./FibonacciRec"

@@ -6,16 +6,16 @@ int fibRec(int x) {
       return(x);
    }
    else {
-     //O(n)
+     //O(??)
       return(fibRec(x-1)+fibRec(x-2));
    }
 }
 
 int main() {
    int x , i=0;
-   cout << "Ingrese el número de términos para la serie: ";
+   cout << "Ingrese el número de términos deseados para aproximar la serie: ";
    cin >> x;
-   cout << "\nSerie de Fibonacci: ";
+   cout << "\nLos " << x << " primeros términos de la Serie de Fibonacci son: ";
    while(i < x) {
       cout << " " << fibRec(i);
       i++;

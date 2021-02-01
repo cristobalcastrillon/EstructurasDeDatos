@@ -14,9 +14,9 @@ void fib(int num) {
 
 int main() {
    int num;
-   cout << "Ingrese el número: ";
+   cout << "Ingrese el número de términos deseados para aproximar la serie: ";
    cin >> num;
-   cout << "\nLa serie de Fibonacci: " ;
+   cout << "\nLos " << num << " primeros términos de la Serie de Fibonacci son: ";
    fib(num);
    return 0;
 }
