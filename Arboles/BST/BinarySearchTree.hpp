@@ -8,16 +8,24 @@ struct BinarySearchTree{
     Node<T> * root;
     
     BinarySearchTree(T dato){
-        root = new Node<T>(dato);
+        root = NULL;
+        root = insert(root, dato);
     }
 
-    Node<T> * insert(Node <T>* nodoAct, T dato){
-        if(nodoAct != NULL){
-            if(dato >= nodoAct.dato){
+    Node<T> * insert(Node <T> * nodoRaiz, T dato){
+        //TODO: fix this!
+        if(nodoRaiz == NULL){
+            nodoRaiz = new Node<T>(dato);
+        }
+        else{
+            if(dato >= nodoRaiz->dato){
+                insert(nodoRaiz->rightChild, dato);
             }
-            if(dato < nodoAct.dato){
+            if(dato < nodoRaiz->dato){
+                insert(nodoRaiz->leftChild, dato);
             }
         }
+        return nodoRaiz;
     }
 };
 
