@@ -1,14 +1,14 @@
-#include "avlNode.hpp"
+#include "../Node.hpp"
 
 template <typename T>
 struct avlTree{
-    avlNode<T> * root;
+    Node<T> * root;
 
     avlTree(){//Default constructor
         root = NULL;
     }
 
-    int height(avlNode<T> * tempNode){
+    int height(Node<T> * tempNode){
         int h = 0;
         if(tempNode != NULL){
             int leftHeight = height(tempNode->leftChild);
@@ -19,16 +19,16 @@ struct avlTree{
         return h;
     }
 
-    int balanceFactor(avlNode<T> * tempNode){
+    int balanceFactor(Node<T> * tempNode){
         int leftHeight = height(tempNode->leftChild);
         int rightHeight = height(tempNode->rightChild);
         return (leftHeight - rightHeight);
     }
 
-    avlNode<T> * insert(avlNode<T> * rootTemp, T datoTemp){
+    Node<T> * insert(Node<T> * rootTemp, T datoTemp){
         //NO SE AUTOBALANCEA.
         if(rootTemp == NULL){
-            rootTemp = new avlNode<T>(datoTemp);
+            rootTemp = new Node<T>(datoTemp);
         }
         else{
             if(datoTemp >= rootTemp->dato){
@@ -45,7 +45,7 @@ struct avlTree{
         return rootTemp;
     }
 
-    avlNode<T> * balance(avlNode<T> * rootTemp){
+    Node<T> * balance(Node<T> * rootTemp){
         //Evaluar qué rotacion(es) se requiere (zig-zag o simple)
         int balanceFactor = balanceFactor(rootTemp);
         // if(balanceFactor > 1){
