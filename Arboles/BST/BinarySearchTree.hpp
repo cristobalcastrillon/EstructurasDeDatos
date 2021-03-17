@@ -17,45 +17,44 @@ struct BinarySearchTree{
         root = insert(root, dato);
     }
 
-    Node<T> * insert(Node <T> * givenNode, T dato){
-        //TODO: Arreglar lo siguiente:
-        //Cuando se está "insertando" los nodos, no se está conectando (givenNode->rightChild = ?)...
-        if(givenNode == NULL){
-            givenNode = new Node<T>(dato);
-            //std::cout << givenNode->dato << std::endl;
+    Node<T> * insert(Node<T> * nodo, T dato){
+        if(nodo != NULL){
+            if(dato >= nodo->dato){
+                nodo->rightChild = insert(nodo->rightChild, dato);
+            }
+            if(dato < nodo->dato){
+                nodo->leftChild = insert(nodo->leftChild, dato);
+            }
         }
-        else if(dato >= givenNode->dato){
-            givenNode = insert(givenNode->rightChild, dato);
-        }
-        else if(dato < givenNode->dato){
-            givenNode = insert(givenNode->leftChild, dato);
-        }
-        return givenNode;
+        nodo = new Node<T>(dato);
+        return nodo;
     }
 
-    void inorder(Node<T> * givenNode){
-        //No está funcionando. Sospecho que porque la inserción tampoco está funcionando.
-        //TODO: Fix this!
-        if(givenNode == NULL){
+    void inorder(Node<T> * nodo){
+        if(nodo == NULL)
             return;
-        }
-        inorder(givenNode->leftChild);
-        std::cout << givenNode->dato << '\t';
-        inorder(givenNode->rightChild);
+        inorder(nodo->leftChild);
+        std::cout << nodo->dato << '\t';
+        inorder(nodo->rightChild);
     }
 
-    void preorder(Node<T> * givenNode){
-        if(givenNode == NULL){
+    void preorder(Node<T> * nodo){
+        if(nodo == NULL)
             return;
-        }
-        std::cout << givenNode->dato << '\t';
-        preorder(givenNode->leftChild);
-        preorder(givenNode->rightChild);
+        std::cout << nodo->dato << '\t';
+        preorder(nodo->leftChild);
+        preorder(nodo->rightChild);
     }
 
-    void postorder(){
-
+    void postorder(Node<T> * nodo){
+        if(nodo == NULL)
+            return;
+        preorder(nodo->leftChild);
+        preorder(nodo->rightChild);
+        std::cout << nodo->dato << '\t';
     }
+
+
 };
 
 #endif /* BINARY_SEARCH_TREE */

@@ -9,5 +9,6 @@ int main(){
     std::cout << '\n';
     bst.preorder(bst.root);
     std::cout << '\n';
+    bst.postorder(bst.root);
     return 0;
 }
