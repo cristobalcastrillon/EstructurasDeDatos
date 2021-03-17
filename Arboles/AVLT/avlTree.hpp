@@ -12,9 +12,9 @@ struct avlTree{
         int h = 0;
         if(tempNode != NULL){
             int leftHeight = height(tempNode->leftChild);
-            int rightHeight = height(tempNode->rightHeight);
+            int rightHeight = height(tempNode->rightChild);
             int maxHeight = std::max(leftHeight, rightHeight);
-            h = maxHeight + 1;
+            h = maxHeight+1;
         }
         return h;
     }
@@ -26,7 +26,7 @@ struct avlTree{
     }
 
     avlNode<T> * insert(avlNode<T> * rootTemp, T datoTemp){
-        //NO CALCULA EL FACTOR DE BALANCE; NO BALANCEA.
+        //NO SE AUTOBALANCEA.
         if(rootTemp == NULL){
             rootTemp = new avlNode<T>(datoTemp);
         }
@@ -37,8 +37,22 @@ struct avlTree{
             if(datoTemp < rootTemp->dato){
                 rootTemp->leftChild = insert(rootTemp->leftChild, datoTemp);
             }
+            //Calcular el balanceFactor...
+            // bF = balanceFactor(rootTemp);
+            //Balancear...
+            // rootTemp = balance();
         }
-        //balancear arbol y calcular nueva raíz
         return rootTemp;
+    }
+
+    avlNode<T> * balance(avlNode<T> * rootTemp){
+        //Evaluar qué rotacion(es) se requiere (zig-zag o simple)
+        int balanceFactor = balanceFactor(rootTemp);
+        // if(balanceFactor > 1){
+        //     if(balanceFactor())
+        // }
+        // if(balanceFactor < -1){
+            
+        // }
     }
 };
