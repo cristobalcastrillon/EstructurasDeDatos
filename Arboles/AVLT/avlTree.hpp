@@ -14,8 +14,8 @@ struct AVLTree{
     }
 
     int height(Node<T> * nodo){
-        //Retorna la _cantidad de niveles_ del árbol.
-        int h = 0;
+        //Retorna la altura del árbol (cantidad máx. de vértices a izq. o der. desde el nodo raíz hasta sus hojas).
+        int h = -1;
         if(nodo != NULL){
             int leftHeight = height(nodo->leftChild);
             int rightHeight = height(nodo->rightChild);

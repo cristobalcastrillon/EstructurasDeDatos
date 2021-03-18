@@ -6,7 +6,6 @@ struct Node{
 
     Node(T datoTemp){ //Constructor
         dato = datoTemp;
-        leftChild = NULL;
-        rightChild = NULL;
+        leftChild = rightChild = NULL;
     }
 };

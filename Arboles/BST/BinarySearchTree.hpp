@@ -53,8 +53,6 @@ struct BinarySearchTree{
         preorder(nodo->rightChild);
         std::cout << nodo->dato << '\t';
     }
-
-
 };
 
 #endif /* BINARY_SEARCH_TREE */
