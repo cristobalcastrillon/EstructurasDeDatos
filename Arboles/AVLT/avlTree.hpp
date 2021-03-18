@@ -52,19 +52,23 @@ struct AVLTree{
         if(balanceFactor > 1){
             //Subárbol izquierdo es más profundo que el derecho
             if(balanceFactor(nodo->leftChild) > 0){
-                
+                //Rotación simple a la derecha
+                // nodo: nodo padre
+                //rot_sim_derecha();
             }
             else{
-
+                //Rotación doble a la derecha:
+                //Primero a la izq., después a la der.
             }
         }
         if(balanceFactor < -1){
             //Subárbol derecho es más profundo que el izquierdo
             if(balanceFactor(nodo->rightChild) > 0){
-
+                //Rotación simple a la izquierda
             }
             else{
-                
+                //Rotación doble a la derecha:
+                //Primero a la der., después a la izq.
             }
         }
         return;
