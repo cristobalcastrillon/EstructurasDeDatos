@@ -1,21 +1,25 @@
 #include <iostream>
 
-#include "avlTree.hpp"
+#include "AVLTree.hpp"
 
 int main(){
-    avlTree<char> nuevoArbol;
-    
-    nuevoArbol.root = nuevoArbol.insert(nuevoArbol.root, 'A');
-    std::cout << nuevoArbol.root->dato << std::endl;
+    AVLTree<int> avl;
 
-    int altura = nuevoArbol.height(nuevoArbol.root);
-    std::cout << altura << std::endl;
+    //Probando inserciones al árbol...
+    avl.root = avl.insert(avl.root, 2);
+    std::cout << avl.height(avl.root) << std::endl;
 
-    nuevoArbol.insert(nuevoArbol.root, 'B');
-    std::cout << nuevoArbol.root->rightChild->dato << std::endl;
+    avl.insert(avl.root, 1);
+    std::cout << avl.height(avl.root) << std::endl;
 
-    altura = nuevoArbol.height(nuevoArbol.root);
-    std::cout << altura << std::endl;
+    avl.insert(avl.root, 3);
+    std::cout << avl.height(avl.root) << std::endl;
 
+    //Probando los recorridos al árbol...
+    avl.inorder(avl.root);
+    std::cout << '\n';
+    avl.preorder(avl.root);
+    std::cout << '\n';
+    avl.postorder(avl.root);
     return 0;
 }

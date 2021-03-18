@@ -1,58 +1,98 @@
 #include "../Node.hpp"
 
 template <typename T>
-struct avlTree{
+struct AVLTree{
     Node<T> * root;
 
-    avlTree(){//Default constructor
+    AVLTree(){//Default constructor
         root = NULL;
     }
 
-    int height(Node<T> * tempNode){
+    AVLTree(T dato){
+        root = NULL;
+        root = insert(root, dato);
+    }
+
+    int height(Node<T> * nodo){
+        //Retorna la _cantidad de niveles_ del árbol.
         int h = 0;
-        if(tempNode != NULL){
-            int leftHeight = height(tempNode->leftChild);
-            int rightHeight = height(tempNode->rightChild);
+        if(nodo != NULL){
+            int leftHeight = height(nodo->leftChild);
+            int rightHeight = height(nodo->rightChild);
             int maxHeight = std::max(leftHeight, rightHeight);
-            h = maxHeight+1;
+            h = maxHeight + 1;
         }
         return h;
     }
 
-    int balanceFactor(Node<T> * tempNode){
-        int leftHeight = height(tempNode->leftChild);
-        int rightHeight = height(tempNode->rightChild);
+    int balanceFactor(Node<T> * nodo){
+        int leftHeight = height(nodo->leftChild);
+        int rightHeight = height(nodo->rightChild);
         return (leftHeight - rightHeight);
     }
 
-    Node<T> * insert(Node<T> * rootTemp, T datoTemp){
-        //NO SE AUTOBALANCEA.
-        if(rootTemp == NULL){
-            rootTemp = new Node<T>(datoTemp);
-        }
-        else{
-            if(datoTemp >= rootTemp->dato){
-                rootTemp->rightChild = insert(rootTemp->rightChild, datoTemp);
+    Node<T> * insert(Node<T> * nodo, T dato){
+        if(nodo != NULL){
+            if(dato >= nodo->dato){
+                nodo->rightChild = insert(nodo->rightChild, dato);
             }
-            if(datoTemp < rootTemp->dato){
-                rootTemp->leftChild = insert(rootTemp->leftChild, datoTemp);
+            if(dato < nodo->dato){
+                nodo->leftChild = insert(nodo->leftChild, dato);
             }
-            //Calcular el balanceFactor...
-            // bF = balanceFactor(rootTemp);
-            //Balancear...
-            // rootTemp = balance();
         }
-        return rootTemp;
+        nodo = new Node<T>(dato);
+        //TODO: Develop balance()
+        //nodo = balance(nodo);
+        return nodo;
     }
 
-    Node<T> * balance(Node<T> * rootTemp){
-        //Evaluar qué rotacion(es) se requiere (zig-zag o simple)
-        int balanceFactor = balanceFactor(rootTemp);
-        // if(balanceFactor > 1){
-        //     if(balanceFactor())
-        // }
-        // if(balanceFactor < -1){
-            
-        // }
+    Node<T> * balance(Node<T> * nodo){
+        //Determinar qué rotación(es) se requiere (zig-zag o simple)
+        int balanceFactor = balanceFactor(nodo);
+        if(balanceFactor > 1){
+            //Subárbol izquierdo es más profundo que el derecho
+            if(balanceFactor(nodo->leftChild) > 0){
+                
+            }
+            else{
+
+            }
+        }
+        if(balanceFactor < -1){
+            //Subárbol derecho es más profundo que el izquierdo
+            if(balanceFactor(nodo->rightChild) > 0){
+
+            }
+            else{
+                
+            }
+        }
+        return;
+    }
+
+
+
+    void inorder(Node<T> * nodo){
+        if(nodo == NULL)
+            return;
+        inorder(nodo->leftChild);
+        std::cout << nodo->dato << '\t';
+        inorder(nodo->rightChild);
+    }
+
+    void preorder(Node<T> * nodo){
+        if(nodo == NULL)
+            return;
+        std::cout << nodo->dato << '\t';
+        preorder(nodo->leftChild);
+        preorder(nodo->rightChild);
+    }
+
+    void postorder(Node<T> * nodo){
+        if(nodo == NULL)
+            return;
+        preorder(nodo->leftChild);
+        preorder(nodo->rightChild);
+        std::cout << nodo->dato << '\t';
     }
 };
