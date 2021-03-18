@@ -5,22 +5,22 @@ struct SinglyLinkedListNode{
 
     SinglyLinkedListNode(){
         data = NULL;
-        next = NULL;
+        next = nullptr;
     }
 
     SinglyLinkedListNode(T data){
         this->data = data;
-        next = NULL;
+        next = nullptr;
     }
 
     void printLinkedList(SinglyLinkedListNode* head) {
-        while(head != NULL){
+        while(head != nullptr){
             std::cout << head->data << std::endl;
             head = head->next;
         }
     }
 
-    SinglyLinkedListNode* insertNodeAtTail(SinglyLinkedListNode* head, int data) {
-        
+    SinglyLinkedListNode* insertNodeAtTail(SinglyLinkedListNode* head, int data){
+        //TODO: POST THE ISSUE IN STACKOVERFLOW!
     }
 };
