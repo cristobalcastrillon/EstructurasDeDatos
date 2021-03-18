@@ -54,7 +54,7 @@ struct AVLTree{
             if(balanceFactor(nodo->leftChild) > 0){
                 //Rotación simple a la derecha
                 // nodo: nodo padre
-                //rot_sim_derecha();
+                //rot_sim_derecha(nodo);
             }
             else{
                 //Rotación doble a la derecha:
