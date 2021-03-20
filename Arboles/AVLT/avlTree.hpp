@@ -1,3 +1,6 @@
+#ifndef AVL_TREE
+#define AVL_TREE
+
 #include "../Node.hpp"
 
 template <typename T>
@@ -100,3 +103,5 @@ struct AVLTree{
         std::cout << nodo->dato << '\t';
     }
 };
+
+#endif /* AVL_TREE */
