@@ -23,5 +23,29 @@ struct RedBlackTree{
         nodo = new RBNode<T>(data);
         return nodo;
     }
+
+    void inorder(RBNode<T> * nodo){
+        if(nodo == NULL)
+            return;
+        inorder(nodo->leftChild);
+        std::cout << nodo->dato << '\t';
+        inorder(nodo->rightChild);
+    }
+
+    void preorder(RBNode<T> * nodo){
+        if(nodo == NULL)
+            return;
+        std::cout << nodo->dato << '\t';
+        preorder(nodo->leftChild);
+        preorder(nodo->rightChild);
+    }
+
+    void postorder(RBNode<T> * nodo){
+        if(nodo == NULL)
+            return;
+        preorder(nodo->leftChild);
+        preorder(nodo->rightChild);
+        std::cout << nodo->dato << '\t';
+    }
 };
 #endif /* RED_BLACK_TREE */
