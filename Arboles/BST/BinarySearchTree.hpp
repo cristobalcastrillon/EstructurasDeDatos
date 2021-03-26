@@ -25,7 +25,8 @@ struct BinarySearchTree{
                 nodo->leftChild = insert(nodo->leftChild, dato);
             }
         }
-        nodo = new Node<T>(dato);
+        if(!nodo)
+            nodo = new Node<T>(dato);
         return nodo;
     }
 
