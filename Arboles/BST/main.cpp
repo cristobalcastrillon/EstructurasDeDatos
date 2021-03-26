@@ -9,7 +9,7 @@ int main(){
     bst.inorder(bst.root);
     std::cout << '\n';
 
-    bst.insert(bst.root, 2);
+    bst.insert(bst.root->leftChild, 2);
     bst.inorder(bst.root);
     std::cout << '\n';
 
@@ -18,7 +18,7 @@ int main(){
     bst.inorder(bst.root);
     std::cout << '\n';
 
-    bst.insert(bst.root, 5);
+    bst.insert(bst.root->rightChild, 5);
     bst.inorder(bst.root);
     std::cout << '\n';
 
