@@ -43,7 +43,8 @@ struct AVLTree{
                 nodo->leftChild = insert(nodo->leftChild, dato);
             }
         }
-        nodo = new Node<T>(dato);
+        if(!nodo)
+            nodo = new Node<T>(dato);
         //TODO: Develop balance()
         //nodo = balance(nodo);
         return nodo;
