@@ -17,7 +17,7 @@ struct BinarySearchTree{
     }
 
     Node<T> * insert(Node<T> * nodo, T dato){
-        if(nodo != NULL){
+        if(nodo){
             if(dato >= nodo->dato){
                 nodo->rightChild = insert(nodo->rightChild, dato);
             }

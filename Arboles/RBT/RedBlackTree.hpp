@@ -12,7 +12,7 @@ struct RedBlackTree{
     }
 
     RBNode<T> * insert(RBNode<T> * nodo, T data){
-        if(nodo != NULL){
+        if(nodo){
             if(data >= nodo->data){
                 nodo->rightChild = insert(nodo->rightChild, data);
                 nodo->rightChild->parent = nodo;
