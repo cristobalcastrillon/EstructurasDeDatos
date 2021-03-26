@@ -22,7 +22,8 @@ struct RedBlackTree{
                 nodo->leftChild->parent = nodo;
             }
         }
-        nodo = new RBNode<T>(data);
+        if(!nodo)
+            nodo = new RBNode<T>(data);
         return nodo;
     }
 
