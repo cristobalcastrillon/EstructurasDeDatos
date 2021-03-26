@@ -13,7 +13,7 @@ struct BinarySearchTree{
     }
     
     BinarySearchTree(T dato){
-        root = NULL;
+        root = new Node<T>(dato);
     }
 
     Node<T> * insert(Node<T> * nodo, T dato){

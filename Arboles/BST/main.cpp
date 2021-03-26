@@ -1,15 +1,27 @@
 #include "BinarySearchTree.hpp"
 
 int main(){
-    BinarySearchTree<int> bst;
-    bst.root = bst.insert(bst.root, 2);
-    bst.insert(bst.root, 1);
-    bst.insert(bst.root, 3);
-    //TODO: fix 'BST::insert()' que para cuatro nodos se putea
-    // bst.insert(bst.root, 'D');
-    // bst.insert(bst.root, 'E');
+    BinarySearchTree<int> bst(3);
     bst.inorder(bst.root);
     std::cout << '\n';
+
+    bst.insert(bst.root, 1);
+    bst.inorder(bst.root);
+    std::cout << '\n';
+
+    bst.insert(bst.root, 2);
+    bst.inorder(bst.root);
+    std::cout << '\n';
+
+    // //TODO: fix 'BST::insert()' que para más de dos niveles en el árbol se putea
+    bst.insert(bst.root, 4);
+    bst.inorder(bst.root);
+    std::cout << '\n';
+
+    bst.insert(bst.root, 5);
+    bst.inorder(bst.root);
+    std::cout << '\n';
+
     bst.preorder(bst.root);
     std::cout << '\n';
     bst.postorder(bst.root);
