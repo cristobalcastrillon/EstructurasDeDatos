@@ -1,22 +1,21 @@
 #ifndef AVL_TREE
 #define AVL_TREE
 
-#include "../Node.hpp"
+#include "Node.hpp"
 
-template <typename T>
 struct AVLTree{
-    Node<T> * root;
+    Node * root;
 
     AVLTree(){//Default constructor
         root = NULL;
     }
 
-    AVLTree(T dato){
+    AVLTree(std::string dato){
         root = NULL;
         root = insert(root, dato);
     }
 
-    int height(Node<T> * nodo){
+    int height(Node * nodo){
         //Retorna la altura del árbol (cantidad máx. de vértices a izq. o der. desde el nodo raíz hasta sus hojas).
         int h = -1;
         if(nodo != NULL){
@@ -28,61 +27,62 @@ struct AVLTree{
         return h;
     }
 
-    int balanceFactor(Node<T> * nodo){
+    int balanceFactor(Node * nodo){
         int leftHeight = height(nodo->leftChild);
         int rightHeight = height(nodo->rightChild);
         return (leftHeight - rightHeight);
     }
 
-    Node<T> * insert(Node<T> * nodo, T dato){
+    Node * insert(Node * nodo, std::string dato){
         if(nodo){
-            if(dato >= nodo->dato){
+            if(dato >= nodo->termino){
                 nodo->rightChild = insert(nodo->rightChild, dato);
             }
-            if(dato < nodo->dato){
+            if(dato < nodo->termino){
                 nodo->leftChild = insert(nodo->leftChild, dato);
             }
         }
         if(!nodo)
-            nodo = new Node<T>(dato);
+            //El significado del término es NULL...
+            nodo = new Node(dato, "NULL");
         nodo = balance(nodo);
         return nodo;
     }
 
-    Node<T> * RDD(Node<T> * root){
-        Node<T> * temp;
+    Node * RDD(Node * root){
+        Node * temp;
         temp = root->rightChild;
         root->rightChild = temp->leftChild;
         temp->leftChild = root;
         return temp;
     }
 
-    Node<T> * RII(Node<T> * root)
+    Node * RII(Node * root)
     {
-        Node<T> * temp;
+        Node * temp;
         temp = root->leftChild;
         root->leftChild = temp->rightChild;
         temp->rightChild = root;
         return temp;
     }
 
-    Node<T> * RID(Node<T> * root)
+    Node * RID(Node * root)
     {
-        Node<T> * temp;
+        Node * temp;
         temp = root->leftChild;
         root->leftChild = RDD(temp);
         return RII(root);
     }
 
-    Node<T> * RDI(Node<T> * root)
+    Node * RDI(Node * root)
     {
-        Node<T> * temp;
+        Node * temp;
         temp = root->rightChild;
         root->rightChild = RII(temp);
         return RDD(root);
     }
 
-    Node<T> * balance(Node<T> * nodo){
+    Node * balance(Node * nodo){
         //Determinar qué rotación(es) se requiere (zig-zag o simple)
         int balFac = balanceFactor(nodo);
         if(balFac > 1){
@@ -107,28 +107,28 @@ struct AVLTree{
         return nodo;
     }
 
-    void inorder(Node<T> * nodo){
+    void inorder(Node * nodo){
         if(nodo == NULL)
             return;
         inorder(nodo->leftChild);
-        std::cout << nodo->dato << '\t';
+        std::cout << nodo->termino << '\t';
         inorder(nodo->rightChild);
     }
 
-    void preorder(Node<T> * nodo){
+    void preorder(Node * nodo){
         if(nodo == NULL)
             return;
-        std::cout << nodo->dato << '\t';
+        std::cout << nodo->termino << '\t';
         preorder(nodo->leftChild);
         preorder(nodo->rightChild);
     }
 
-    void postorder(Node<T> * nodo){
+    void postorder(Node * nodo){
         if(nodo == NULL)
             return;
         preorder(nodo->leftChild);
         preorder(nodo->rightChild);
-        std::cout << nodo->dato << '\t';
+        std::cout << nodo->termino << '\t';
     }
 };
 
